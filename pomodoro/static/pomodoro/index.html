@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer | Focus</title>
+  <link rel="stylesheet" href="static\pomodoro\style.css">
+</head>
+<body>
+  <div id="timer-message">Please select a timer before starting.</div>
+  <div class="container">
+    <div class="timer">
+      <h1>⏰ Pomodoro Timer</h1>
+      <input type="text" id="task-input" placeholder="Enter task name...">
+      <h2 id="task-name-display"></h2>
+      <div class="button-container">
+        <button class="button" id="pomodoro-session">Pomodoro</button>
+        <button class="button" id="short-break">Short Break</button>
+        <button class="button" id="long-break">Long Break</button>
+      </div>
+      <main>
+        <div class="pomodoro">
+          <div id="pomodoro-timer" class="timer-display" data-duration="25.00">
+            <h1 class="time">25:00</h1>
+          </div>
+          <div id="short-timer" class="timer-display" data-duration="5.00">
+            <h1 class="time">5:00</h1>
+          </div>
+          <div id="long-timer" class="timer-display" data-duration="10.00">
+            <h1 class="time">10:00</h1>
+          </div>
+        </div>
+      </main>
+      <div class="buttons">
+        <button id="start">START</button>
+        <button id="stop">STOP</button>
+      </div>
+    </div>
+  </div>
+  <div style="
+  position: fixed; 
+  bottom: 20px; 
+  left: 20px; 
+  z-index: 1000; 
+  text-decoration: none; 
+  background-color: #2e325a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;">
+  <a href="/landing" style="color: inherit; text-decoration: none; display: block;">
+    Back to Home
+  </a>
+</div>
+  <script src="static\pomodoro\script.js"></script>
+</body>
+</html>

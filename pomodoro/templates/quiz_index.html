@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question Generator</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom Quiz CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Generate Questions from Your Document</h1>
+    <form action="/generate" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="file">Upload your document (PDF, TXT, DOCX):</label>
+        <input type="file" name="file" class="form-control-file" required>
+      </div>
+      <div class="form-group">
+        <label for="question_type">Select Question Type:</label>
+        <select name="question_type" id="question_type" class="form-control" required>
+          <option value="open">Open Questions</option>
+          <option value="mcq">MCQs</option>
+        </select>
+      </div>
+      <div class="form-group" id="mcq_count_group" style="display: none;">
+        <label for="num_questions">How many MCQs?</label>
+        <input type="number" name="num_questions" id="num_questions" class="form-control" min="1" value="5">
+      </div>
+      <button type="submit" class="btn btn-primary">Generate</button>
+    </form>
+  </div>
+  
+  <!-- Back to Home Button -->
+  <div style="position: fixed; bottom: 20px; left: 20px; z-index: 1000;">
+    <a href="/landing" class="btn btn-secondary">Back to Home</a>
+  </div>
+  
+  <script>
+    // Toggle the MCQ count input based on selection
+    document.getElementById("question_type").addEventListener("change", function() {
+      const mcqGroup = document.getElementById("mcq_count_group");
+      if (this.value === "mcq") {
+        mcqGroup.style.display = "block";
+      } else {
+        mcqGroup.style.display = "none";
+      }
+    });
+  </script>
+  
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
